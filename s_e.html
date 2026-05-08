@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Saranya Easwaran · HR Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #1a1612;
+    --smoke: #3d342b;
+    --gold: #b8904a;
+    --gold-light: #d4ab72;
+    --cream: #f7f4ef;
+    --cream-dark: #ede8e0;
+    --white: #fdfbf8;
+    --rule: rgba(184,144,74,0.3);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ───────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 75% 50%, rgba(184,144,74,0.08) 0%, transparent 70%),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.02) 59px,
+        rgba(255,255,255,0.02) 60px
+      );
+    pointer-events: none;
+  }
+
+  .hero-left {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .hero-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 60px 0 40px; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 7vw, 90px);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--white);
+    margin-bottom: 40px;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(253,251,248,0.65);
+    max-width: 480px;
+    line-height: 1.75;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+  .stat-num span { font-size: 22px; color: var(--gold); }
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+  }
+
+  /* ── HERO RIGHT PANEL ───────────────────────── */
+  .hero-right {
+    background: rgba(255,255,255,0.03);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .panel-title {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(184,144,74,0.2);
+  }
+
+  .contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .contact-list li {
+    font-size: 13px;
+    color: rgba(253,251,248,0.6);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .contact-list .ci {
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .contact-list a { color: rgba(253,251,248,0.6); text-decoration: none; }
+  .contact-list a:hover { color: var(--gold-light); }
+
+  .expertise-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid rgba(184,144,74,0.35);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  .personal-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .personal-list li {
+    font-size: 12px;
+    color: rgba(253,251,248,0.5);
+    display: flex;
+    justify-content: space-between;
+  }
+  .personal-list .pl { color: rgba(253,251,248,0.25); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .personal-list .pv { color: rgba(253,251,248,0.7); }
+
+  /* ── MAIN CONTENT ───────────────────────────── */
+  main { background: var(--white); }
+
+  /* section wrapper */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── EXPERIENCE ─────────────────────────────── */
+  .experience-grid { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .exp-item.visible { opacity: 1; transform: translateY(0); }
+  .exp-item:first-child { padding-top: 0; }
+
+  .exp-meta { padding-top: 4px; }
+  .exp-period {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .exp-company {
+    font-size: 12px;
+    color: var(--smoke);
+    opacity: 0.6;
+    line-height: 1.5;
+  }
+
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .exp-sub {
+    font-size: 12px;
+    color: var(--smoke);
+    opacity: 0.55;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .exp-bullets li {
+    font-size: 13.5px;
+    color: var(--smoke);
+    line-height: 1.65;
+    padding-left: 18px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 2px;
+  }
+
+  /* ── EDUCATION ───────────────────────────────── */
+  .edu-section { background: var(--cream); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .edu-card {
+    background: var(--white);
+    padding: 36px 30px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .edu-card.visible { opacity: 1; transform: translateY(0); }
+  .edu-card:nth-child(2) { transition-delay: 0.1s; }
+  .edu-card:nth-child(3) { transition-delay: 0.2s; }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .edu-institution { font-size: 12px; color: var(--smoke); opacity: 0.6; margin-bottom: 4px; }
+  .edu-year { font-size: 11px; color: var(--gold); font-weight: 500; letter-spacing: 0.1em; }
+
+  /* ── FOOTER ─────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: rgba(253,251,248,0.35);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ─────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.8s ease both; }
+  .logo-mark     { animation-delay: 0.1s; }
+  .hero-content  { animation-delay: 0.25s; }
+  .hero-stats    { animation-delay: 0.45s; }
+
+  .hero-right > * { animation: fadeUp 0.8s ease both; }
+  .hero-right > *:nth-child(1) { animation-delay: 0.35s; }
+  .hero-right > *:nth-child(2) { animation-delay: 0.45s; }
+  .hero-right > *:nth-child(3) { animation-delay: 0.55s; }
+  .hero-right > *:nth-child(4) { animation-delay: 0.65s; }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 48px 40px; }
+    .hero-left { padding: 60px 40px; }
+    .section { padding: 60px 32px; }
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <div class="logo-mark">Portfolio · 2026</div>
+
+    <div class="hero-content">
+      <p class="eyebrow">HR Group Manager</p>
+      <h1 class="hero-name">
+        Saranya<br>
+        <em>Easwaran</em>
+      </h1>
+      <p class="hero-tagline">
+        HR specialist with 17 years of international experience across India, Europe and the US.
+        Driving HR transformation, talent strategies and change management — currently steering HR
+        for DACH &amp; Hungary, a workforce of 1,800+.
+      </p>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">17<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">1,8<span>k+</span></div>
+        <div class="stat-label">Employees Led</div>
+      </div>
+      <div>
+        <div class="stat-num">5<span>+</span></div>
+        <div class="stat-label">Countries</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div>
+      <p class="panel-title">Contact</p>
+      <ul class="contact-list">
+        <li><span class="ci">📞</span> +49 173 894 1432</li>
+        <li><span class="ci">✉</span> <a href="mailto:hello@saranyae.com">hello@saranyae.com</a></li>
+        <li><span class="ci">✉</span> <a href="mailto:saranyae0212@gmail.com">saranyae0212@gmail.com</a></li>
+        <li><span class="ci">📍</span> Pfingstbrunnen Str. 38,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Schwalbach 65824, Germany</li>
+        <li><span class="ci">🔗</span> <a href="#" target="_blank">LinkedIn Profile</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="panel-title">Core Expertise</p>
+      <div class="expertise-tags">
+        <span class="tag">HR Transformation</span>
+        <span class="tag">Talent Strategy</span>
+        <span class="tag">Change Management</span>
+        <span class="tag">M&amp;A Integration</span>
+        <span class="tag">Succession Planning</span>
+        <span class="tag">Leadership Dev</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">HR Analytics</span>
+        <span class="tag">C-Level Advisory</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="panel-title">Details</p>
+      <ul class="personal-list">
+        <li><span class="pl">Nationality</span><span class="pv">Indian</span></li>
+        <li><span class="pl">Based in</span><span class="pv">Germany</span></li>
+        <li><span class="pl">Date of Birth</span><span class="pv">02.12.1987</span></li>
+        <li><span class="pl">Driving Licence</span><span class="pv">Yes</span></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<main>
+  <div class="section">
+    <p class="section-label">Work Experience</p>
+    <div class="experience-grid">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jul 2017 — Present</div>
+          <div class="exp-company">HCL Technologies<br>Germany GmbH<br>Frankfurt am Main</div>
+        </div>
+        <div>
+          <h2 class="exp-title">Group Manager</h2>
+          <p class="exp-sub">DACH &amp; Hungary Regional HR Lead</p>
+          <ul class="exp-bullets">
+            <li>Lead HR for DACH &amp; Hungary (1,800+ employees), directing a regional HR team across onboarding, performance, compensation and separation.</li>
+            <li>Advise C-level leaders on workforce strategy, org design, succession planning and leadership development to align people priorities with business goals.</li>
+            <li>Design and implement scalable HR processes and local compliance frameworks across multiple jurisdictions (Germany, Austria, Switzerland, Hungary).</li>
+            <li>Plan and execute M&amp;A, integration and ARD transfers, leading change management and cross-functional coordination.</li>
+            <li>Manage employee representative relations, and partner with global COEs to adopt best practices and HR analytics for decision-making.</li>
+            <li>Led regional special projects covering The Netherlands, Spain, Denmark and Sweden to harmonise HR operations and improve efficiency.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Mar 2015 — Jun 2017</div>
+          <div class="exp-company">HCL Technologies Ltd<br>Chennai</div>
+        </div>
+        <div>
+          <h2 class="exp-title">Deputy Manager</h2>
+          <p class="exp-sub">Sales HR Business Partner — US &amp; India</p>
+          <ul class="exp-bullets">
+            <li>Key HR stakeholder for C-level employees in the Sales organisation across Europe, US and India.</li>
+            <li>Involved in leadership and campus hiring initiatives.</li>
+            <li>Designed and implemented sales bonus policies and performance management frameworks.</li>
+            <li>Led change management initiatives during major organisational transitions.</li>
+            <li>Analysed employee feedback to improve engagement and retention strategies within Sales Leadership.</li>
+            <li>Developed strategic HR initiatives to boost sales team performance.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Apr 2014 — Mar 2015</div>
+          <div class="exp-company">Hexaware Technologies Ltd<br>Chennai</div>
+        </div>
+        <div>
+          <h2 class="exp-title">HR Business Partner</h2>
+          <p class="exp-sub">Managing HR for 600+ employees</p>
+          <ul class="exp-bullets">
+            <li>Facilitated and administered performance and compensation management, exercising an active stake in normalisation and salary fixation alongside business leaders.</li>
+            <li>Ensured policy and process adherence for all employee-related transactions.</li>
+            <li>Maintained 100% employee connect through the Communication Framework (COFA).</li>
+            <li>Conducted data analysis to inform HR decisions and improve workforce planning.</li>
+            <li>Implemented employee engagement initiatives with quantifiable results.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">May 2010 — Apr 2014</div>
+          <div class="exp-company">HCL Technologies Ltd<br>Chennai</div>
+        </div>
+        <div>
+          <h2 class="exp-title">Human Resources</h2>
+          <p class="exp-sub">Employee Partner — 1,000+ employees</p>
+          <ul class="exp-bullets">
+            <li>Managed complete post-recruitment HR activities including Employee Engagement, Retention Management, Process Compliance and Employee Development.</li>
+            <li>Drove efficiency improvement initiatives across the HR function.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jun 2008 — May 2010</div>
+          <div class="exp-company">M.O.P Vaishnav<br>College for Women<br>Chennai</div>
+        </div>
+        <div>
+          <h2 class="exp-title">Technical Lead</h2>
+          <p class="exp-sub">Academic Project Management</p>
+          <ul class="exp-bullets">
+            <li>Technical in-charge and project management lead for academic projects.</li>
+            <li>Responsible for internal and external communications.</li>
+            <li>Mentored students for academic projects related to media and communications.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="edu-section">
+    <div class="section">
+      <p class="section-label">Education</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Executive MBA in HR &amp; Media Management</div>
+          <div class="edu-institution">Indian Management School &amp; Research Center, Mumbai</div>
+          <div class="edu-year">Feb 2010 — Jun 2011</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">MA in Mass Communication &amp; Journalism</div>
+          <div class="edu-institution">Alagappa University, Chennai</div>
+          <div class="edu-year">Postgraduate</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">BSc in Electronic Media</div>
+          <div class="edu-institution">University of Madras, Chennai</div>
+          <div class="edu-year">2005 — 2008</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; 2026 Saranya Easwaran · <a href="mailto:hello@saranyae.com">hello@saranyae.com</a>
+</footer>
+
+<script>
+  // Scroll-triggered reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.exp-item, .edu-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
